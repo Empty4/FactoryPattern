@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/kali/empty4/FactoryPattern/include
 
-CXX_FLAGS = -std=gnu++17 -DGTEST_HAS_PTHREAD=1
+CXX_FLAGS = -std=gnu++14
 

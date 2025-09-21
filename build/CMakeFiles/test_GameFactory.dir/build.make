@@ -97,8 +97,6 @@ test_GameFactory: CMakeFiles/test_GameFactory.dir/test/test_GameFactory.cpp.o
 test_GameFactory: CMakeFiles/test_GameFactory.dir/build.make
 test_GameFactory: CMakeFiles/test_GameFactory.dir/compiler_depend.ts
 test_GameFactory: libFactoryPattern.a
-test_GameFactory: /usr/lib/x86_64-linux-gnu/libgtest_main.a
-test_GameFactory: /usr/lib/x86_64-linux-gnu/libgtest.a
 test_GameFactory: CMakeFiles/test_GameFactory.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kali/empty4/FactoryPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_GameFactory"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_GameFactory.dir/link.txt --verbose=$(VERBOSE)

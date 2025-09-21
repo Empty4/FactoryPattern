@@ -1,3 +1,0 @@
-test_Tank 1 0.00627337
-test_GameFactory 1 0.00565573
----

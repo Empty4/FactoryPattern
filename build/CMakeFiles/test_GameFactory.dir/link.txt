@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/test_GameFactory.dir/link.d CMakeFiles/test_GameFactory.dir/test/test_GameFactory.cpp.o -o test_GameFactory  libFactoryPattern.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/test_GameFactory.dir/link.d CMakeFiles/test_GameFactory.dir/test/test_GameFactory.cpp.o -o test_GameFactory  libFactoryPattern.a

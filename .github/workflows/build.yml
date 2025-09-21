@@ -1,4 +1,4 @@
-name: Build and Package
+name: Build and Test
 
 on: [push, pull_request]
 
@@ -13,39 +13,32 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake g++ libgtest-dev build-essential
+        sudo apt-get install -y cmake g++
 
-    - name: Build and Install GTest
-      run: |
-        sudo apt-get install -y libgtest-dev cmake
-        cd /usr/src/gtest
-        sudo cmake .
-        sudo make
-        sudo cp lib/*.a /usr/lib
+    - name: Create build directory
+      run: mkdir -p build
 
     - name: Configure with CMake
-      run: |
-        mkdir -p build
-        cd build
-        cmake ..
+      run: cd build && cmake ..
 
     - name: Build project
-      run: |
-        cd build
-        make
+      run: cd build && make
 
-    - name: Run Tests
-      run: |
-        cd build
-        ./test_Tank
-        ./test_GameFactory
+    - name: Run Tank test
+      run: cd build && ./test_Tank
+
+    - name: Run GameFactory test
+      run: cd build && ./test_GameFactory
+
+    - name: Build main executable
+      run: cd build && make main
 
     - name: Create DEB package
       run: |
         mkdir -p package/usr/bin
         cp build/main package/usr/bin/
         mkdir -p package/DEBIAN
-        cat > package/DEBIAN/control << EOF
+        cat > package/DEBIAN/control << 'CONTROL_EOF'
 Package: factory-game
 Version: 1.0
 Section: base
@@ -53,7 +46,7 @@ Priority: optional
 Architecture: amd64
 Maintainer: Developer <dev@example.com>
 Description: A simple game using factory pattern
-EOF
+CONTROL_EOF
         dpkg-deb --build package factory-game.deb
 
     - name: Upload Artifact

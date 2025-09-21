@@ -5,23 +5,22 @@ set(CMAKE_CXX_STANDARD 14)
 
 include_directories(include)
 
-# Find GTest
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-
 add_library(FactoryPattern STATIC src/Tank.cpp src/GameFactory.cpp src/Game.cpp)
 
 add_executable(main src/main.cpp)
 target_link_libraries(main FactoryPattern)
 
-# Tests
+# Simple tests without GTest
 add_executable(test_Tank test/test_Tank.cpp)
-target_link_libraries(test_Tank FactoryPattern GTest::gtest GTest::gtest_main)
+target_link_libraries(test_Tank FactoryPattern)
 
 add_executable(test_GameFactory test/test_GameFactory.cpp)
-target_link_libraries(test_GameFactory FactoryPattern GTest::gtest GTest::gtest_main)
+target_link_libraries(test_GameFactory FactoryPattern)
 
-# Add tests
-enable_testing()
-add_test(NAME test_Tank COMMAND test_Tank)
-add_test(NAME test_GameFactory COMMAND test_GameFactory)
+# Add custom test targets
+add_custom_target(run_tests
+    COMMAND echo "Running Tank test..." && ./test_Tank
+    COMMAND echo "Running GameFactory test..." && ./test_GameFactory
+    DEPENDS test_Tank test_GameFactory
+    COMMENT "Running all tests"
+)

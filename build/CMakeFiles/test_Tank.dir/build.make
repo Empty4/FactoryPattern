@@ -97,8 +97,6 @@ test_Tank: CMakeFiles/test_Tank.dir/test/test_Tank.cpp.o
 test_Tank: CMakeFiles/test_Tank.dir/build.make
 test_Tank: CMakeFiles/test_Tank.dir/compiler_depend.ts
 test_Tank: libFactoryPattern.a
-test_Tank: /usr/lib/x86_64-linux-gnu/libgtest_main.a
-test_Tank: /usr/lib/x86_64-linux-gnu/libgtest.a
 test_Tank: CMakeFiles/test_Tank.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kali/empty4/FactoryPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_Tank"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_Tank.dir/link.txt --verbose=$(VERBOSE)

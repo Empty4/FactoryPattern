@@ -1,13 +1,23 @@
-#include "Tank.h"
-#include <gtest/gtest.h>
+#include "../include/Tank.h"
+#include <iostream>
 
-TEST(TankTest, GotShot) {
+int main() {
     Tank tank(5, 0);
-    EXPECT_TRUE(tank.gotShot(5));
-    EXPECT_FALSE(tank.gotShot(3));
-}
-
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    
+    if (tank.gotShot(5)) {
+        std::cout << "TEST PASSED: Tank got shot at position 5" << std::endl;
+    } else {
+        std::cout << "TEST FAILED: Tank should be hit at position 5" << std::endl;
+        return 1;
+    }
+    
+    if (!tank.gotShot(3)) {
+        std::cout << "TEST PASSED: Tank not hit at position 3" << std::endl;
+    } else {
+        std::cout << "TEST FAILED: Tank should not be hit at position 3" << std::endl;
+        return 1;
+    }
+    
+    std::cout << "All Tank tests passed!" << std::endl;
+    return 0;
 }
