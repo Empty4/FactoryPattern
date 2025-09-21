@@ -7,41 +7,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y cmake g++ libgtest-dev
+        sudo apt-get install -y cmake g++ libgtest-dev build-essential
 
-    - name: Build
+    - name: Build GTest
+      run: |
+        sudo apt-get install -y libgtest-dev
+        cd /usr/src/gtest
+        sudo cmake CMakeLists.txt
+        sudo make
+        sudo cp lib/*.a /usr/lib
+
+    - name: Configure and Build
       run: |
         mkdir build
         cd build
         cmake ..
         make
 
-    - name: Test
+    - name: Run Tests
       run: |
         cd build
-        make test
+        ./test_Tank
+        ./test_GameFactory
 
     - name: Create DEB package
       run: |
         mkdir -p package/usr/bin
         cp build/main package/usr/bin/
         mkdir -p package/DEBIAN
-        echo "Package: factory-game" > package/DEBIAN/control
-        echo "Version: 1.0" >> package/DEBIAN/control
-        echo "Section: base" >> package/DEBIAN/control
-        echo "Priority: optional" >> package/DEBIAN/control
-        echo "Architecture: amd64" >> package/DEBIAN/control
-        echo "Maintainer: Developer <dev@example.com>" >> package/DEBIAN/control
-        echo "Description: A simple game using factory pattern" >> package/DEBIAN/control
+        cat > package/DEBIAN/control << EOF
+Package: factory-game
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: Developer <dev@example.com>
+Description: A simple game using factory pattern
+EOF
         dpkg-deb --build package factory-game.deb
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: factory-game-package
-        path: build/package.deb
+        path: build/factory-game.deb
