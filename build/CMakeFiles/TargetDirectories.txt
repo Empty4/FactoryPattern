@@ -1,0 +1,7 @@
+/home/kali/empty4/FactoryPattern/build/CMakeFiles/FactoryPattern.dir
+/home/kali/empty4/FactoryPattern/build/CMakeFiles/main.dir
+/home/kali/empty4/FactoryPattern/build/CMakeFiles/test_Tank.dir
+/home/kali/empty4/FactoryPattern/build/CMakeFiles/test_GameFactory.dir
+/home/kali/empty4/FactoryPattern/build/CMakeFiles/test.dir
+/home/kali/empty4/FactoryPattern/build/CMakeFiles/edit_cache.dir
+/home/kali/empty4/FactoryPattern/build/CMakeFiles/rebuild_cache.dir

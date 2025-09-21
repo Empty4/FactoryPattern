@@ -1,0 +1,47 @@
+name: Build and Package
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake g++ libgtest-dev
+
+    - name: Build
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+
+    - name: Test
+      run: |
+        cd build
+        make test
+
+    - name: Create DEB package
+      run: |
+        mkdir -p package/usr/bin
+        cp build/main package/usr/bin/
+        mkdir -p package/DEBIAN
+        echo "Package: factory-game" > package/DEBIAN/control
+        echo "Version: 1.0" >> package/DEBIAN/control
+        echo "Section: base" >> package/DEBIAN/control
+        echo "Priority: optional" >> package/DEBIAN/control
+        echo "Architecture: amd64" >> package/DEBIAN/control
+        echo "Maintainer: Developer <dev@example.com>" >> package/DEBIAN/control
+        echo "Description: A simple game using factory pattern" >> package/DEBIAN/control
+        dpkg-deb --build package factory-game.deb
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: factory-game-package
+        path: build/package.deb

@@ -1,0 +1,54 @@
+Start testing: Sep 22 00:14 MSK
+----------------------------------------------------------
+1/2 Testing: test_Tank
+1/2 Test: test_Tank
+Command: "/home/kali/empty4/FactoryPattern/build/test_Tank"
+Directory: /home/kali/empty4/FactoryPattern/build
+"test_Tank" start time: Sep 22 00:14 MSK
+Output:
+----------------------------------------------------------
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from TankTest
+[ RUN      ] TankTest.GotShot
+[       OK ] TankTest.GotShot (0 ms)
+[----------] 1 test from TankTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_Tank" end time: Sep 22 00:14 MSK
+"test_Tank" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: test_GameFactory
+2/2 Test: test_GameFactory
+Command: "/home/kali/empty4/FactoryPattern/build/test_GameFactory"
+Directory: /home/kali/empty4/FactoryPattern/build
+"test_GameFactory" start time: Sep 22 00:14 MSK
+Output:
+----------------------------------------------------------
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from GameFactoryTest
+[ RUN      ] GameFactoryTest.CreateAgent
+pos: 2
+[       OK ] GameFactoryTest.CreateAgent (0 ms)
+[----------] 1 test from GameFactoryTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (0 ms total)
+[  PASSED  ] 1 test.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"test_GameFactory" end time: Sep 22 00:14 MSK
+"test_GameFactory" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 22 00:14 MSK

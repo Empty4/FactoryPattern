@@ -1,0 +1,7 @@
+Package: factory-game
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: amd64
+Maintainer: Developer <dev@example.com>
+Description: A simple game using factory pattern

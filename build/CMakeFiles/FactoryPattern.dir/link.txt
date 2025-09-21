@@ -1,0 +1,2 @@
+/usr/bin/ar qc libFactoryPattern.a CMakeFiles/FactoryPattern.dir/src/Tank.cpp.o CMakeFiles/FactoryPattern.dir/src/GameFactory.cpp.o CMakeFiles/FactoryPattern.dir/src/Game.cpp.o
+/usr/bin/ranlib libFactoryPattern.a
